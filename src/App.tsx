@@ -429,16 +429,18 @@ function App() {
             </button>
 
             <div className="w-full flex justify-center">
-              <div className="bg-white rounded-lg shadow-lg p-6 w-[90%]">
-                <div className="mb-4">
-                  {features[currentIndexFeaturesCarousel].icon}
+              <div className="w-full flex justify-center transition-all duration-500">
+                <div className="bg-white rounded-lg shadow-lg p-6 w-[90%]">
+                  <div className="mb-4">
+                    {features[currentIndexFeaturesCarousel].icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {features[currentIndexFeaturesCarousel].title}
+                  </h3>
+                  <p className="text-gray-500">
+                    {features[currentIndexFeaturesCarousel].description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {features[currentIndexFeaturesCarousel].title}
-                </h3>
-                <p className="text-gray-500">
-                  {features[currentIndexFeaturesCarousel].description}
-                </p>
               </div>
             </div>
 
@@ -512,36 +514,35 @@ function App() {
 
               <div className="overflow-hidden">
                 <div
-                  className="flex"
+                  className="flex transition-transform duration-500 ease-in-ou"
                   style={{
                     transform: `translateX(0)`,
                   }}
                 >
-                  <div className="flex w-full">
-                    {visibleItems.map((application, index) => (
-                      <div
-                        key={`${application.title}-${index}`}
-                        className={`w-full md:w-1/${itemsPerPage} px-4`}
-                        style={{ flex: `0 0 ${100 / itemsPerPage}%` }}
-                      >
-                        <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                          <div className="flex mb-4">{application.icon}</div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">
-                            {application.title}
-                          </h3>
-                          <p className="text-gray-500">
-                            {application.description}
-                          </p>
-                        </div>
+                  {visibleItems.map((application, index) => (
+                    <div
+                      key={`${application.title}-${index}`}
+                      className={`w-full md:w-1/${itemsPerPage} px-4`}
+                      style={{ flex: `0 0 ${100 / itemsPerPage}%` }}
+                    >
+                      <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow transition-all duration-500">
+                        <div className="flex mb-4">{application.icon}</div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                          {application.title}
+                        </h3>
+                        <p className="text-gray-500">
+                          {application.description}
+                        </p>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               <button
                 onClick={nextSlide}
-                className="absolute -right-4 md:-right-8 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors z-10"
+                className="absolute -right-4 md:-right-8 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-lg 
+                hover:bg-gray-100 transition-colors z-10"
                 aria-label="Next slide"
               >
                 <IoIosArrowForward className="w-6 h-6 text-violet-700" />
@@ -552,7 +553,7 @@ function App() {
       </div>
 
       {/* Version Section */}
-      <div className="bg-violet-700 flex justify-center items-center flex-col p-4">
+      <div className="bg-violet-700 flex justify-center items-center flex-col p-4 py-12">
         <div className="flex justify-center">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl text-center">
             Version: 5.12.3
@@ -591,7 +592,7 @@ function App() {
       </div>
 
       {/* Pricing Section */}
-      <div className="relative bg-gray-50 overflow-hidden" id="pricing">
+      <div className="relative bg-gray-50 overflow-hidden py-12" id="pricing">
         <div className="m-4">
           {/* Big screens*/}
           <div className="hidden lg:grid grid-cols-1 gap-8 sm:grid-cols-1 lg:grid-cols-4">
@@ -633,7 +634,7 @@ function App() {
               <IoIosArrowBack className="w-6 h-6 text-violet-700" />
             </button>
 
-            <div className="w-full flex justify-center">
+            <div className="w-full flex justify-center transition-all duration-500">
               <div
                 className={`bg-white rounded-lg shadow-lg p-6 w-[90%] flex flex-col justify-center items-center ${pricing[currentIndexPricing].backgroundHoverColor}`}
               >
@@ -787,7 +788,7 @@ function App() {
                 <li>
                   <a
                     href="#features"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 hover:text-violet-700"
                   >
                     Features
                   </a>
@@ -795,7 +796,7 @@ function App() {
                 <li>
                   <a
                     href="#solutions"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 hover:text-violet-700"
                   >
                     Solutions
                   </a>
@@ -803,13 +804,16 @@ function App() {
                 <li>
                   <a
                     href="#applications"
-                    className="text-gray-300 hover:text-white"
+                    className="text-gray-300 hover:text-violet-700"
                   >
                     Applications
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="text-gray-300 hover:text-white">
+                  <a
+                    href="#pricing"
+                    className="text-gray-300 hover:text-violet-700"
+                  >
                     Pricing
                   </a>
                 </li>
@@ -819,17 +823,23 @@ function App() {
               <h3 className="text-white font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-300 hover:text-white">
+                  <a
+                    href="#contact"
+                    className="text-gray-300 hover:text-violet-700"
+                  >
                     Careers
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-gray-300 hover:text-white">
+                  <a
+                    href="#contact"
+                    className="text-gray-300 hover:text-violet-700"
+                  >
                     Contact
                   </a>
                 </li>
@@ -839,17 +849,17 @@ function App() {
               <h3 className="text-white font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     Documentation
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     Blog
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     Support
                   </a>
                 </li>
@@ -859,17 +869,17 @@ function App() {
               <h3 className="text-white font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     Privacy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     Terms
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
+                  <a href="#" className="text-gray-300 hover:text-violet-700">
                     License
                   </a>
                 </li>
